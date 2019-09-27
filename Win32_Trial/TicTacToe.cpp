@@ -73,13 +73,20 @@ void Game::gameStart()
 		turn();
 		select();
 		// early termination if winner is decided
-		if (ctn >= 4 && checkGame())
+		if (ctn >= 4 && checkGame()) 
+		{
+			// refresh & display so as to show the last move
+			refresh();
+			display();
 			return;
+		}		
 		currentPlayer == 'A' ? currentPlayer = 'B' : currentPlayer = 'A';
 		refresh();
 	}
 	// set the currentPlayer to 'D' if draw
 	currentPlayer = 'D';
+	// display so as to show the last move
+	display();
 	return;
 }
 
